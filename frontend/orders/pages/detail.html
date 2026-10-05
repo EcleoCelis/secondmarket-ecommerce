@@ -1,0 +1,58 @@
+<section class="orders-section" aria-labelledby="orders-detail-title">
+    <div class="orders-section-header">
+        <div>
+            <p class="orders-eyebrow">Order Detail</p>
+            <h1 id="orders-detail-title">{{orderNumber}}</h1>
+        </div>
+        <button type="button" class="orders-secondary-button" onclick="ordersApp.navigate('history')">Back To History</button>
+    </div>
+
+    {{ordersStatus}}
+
+    <div class="orders-detail-grid">
+        <section class="orders-panel" aria-label="Order items">
+            <div class="orders-panel-header">
+                <h2>Items</h2>
+                <span>{{itemCount}} item(s)</span>
+            </div>
+            <div class="orders-item-list">
+                {{orderItems}}
+            </div>
+        </section>
+
+        <aside class="orders-summary-card" aria-label="Order summary">
+            <p class="orders-eyebrow">Summary</p>
+            <strong>{{orderTotal}}</strong>
+            <dl>
+                <div>
+                    <dt>Status</dt>
+                    <dd>{{orderStatus}}</dd>
+                </div>
+                <div>
+                    <dt>Payment</dt>
+                    <dd>{{paymentStatus}}</dd>
+                </div>
+                <div>
+                    <dt>Shipping</dt>
+                    <dd>{{shippingStatus}}</dd>
+                </div>
+                <div>
+                    <dt>Placed</dt>
+                    <dd>{{placedAt}}</dd>
+                </div>
+            </dl>
+            {{cancellationAction}}
+        </aside>
+    </div>
+
+    {{trackingPanel}}
+
+    <section class="orders-panel" aria-label="Shipping address">
+        <div class="orders-panel-header">
+            <h2>Shipping</h2>
+        </div>
+        <div class="orders-address">
+            {{shippingAddress}}
+        </div>
+    </section>
+</section>

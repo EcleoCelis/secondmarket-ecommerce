@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Seller | SecondMarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/admin/base.css">
+</head>
+<body class="admin-page">
+    <div class="admin-layout">
+        <aside class="admin-sidebar" aria-label="Admin seller navigation">
+            <a href="/admin" class="admin-brand" aria-label="SecondMarket admin home">
+                <span class="admin-brand-mark" aria-hidden="true"></span>
+                <span>SecondMarket</span>
+            </a>
+
+            <nav class="admin-nav">
+                <button type="button" data-admin-nav="dashboard" onclick="adminApp.navigate('dashboard')" class="admin-nav-link is-active">Dashboard</button>
+                <button type="button" data-admin-nav="products" onclick="adminApp.navigate('products')" class="admin-nav-link">Products</button>
+                <button type="button" data-admin-nav="categories" onclick="adminApp.navigate('categories')" class="admin-nav-link">Categories</button>
+                <button type="button" data-admin-nav="orders" onclick="adminApp.navigate('orders')" class="admin-nav-link">Orders</button>
+            </nav>
+
+            <div class="admin-sidebar-footer">
+                <a href="/" class="admin-secondary-link">View Storefront</a>
+                <button type="button" onclick="adminApp.logout()" class="admin-secondary-link">Sign Out</button>
+            </div>
+        </aside>
+
+        <div class="admin-workspace">
+            <header class="admin-topbar">
+                <div>
+                    <p class="admin-eyebrow">Admin Seller Management</p>
+                    <h1 id="admin-page-title">Inventory Dashboard</h1>
+                </div>
+                <div class="admin-user" aria-live="polite">
+                    <span data-admin-user-name>Checking access...</span>
+                </div>
+            </header>
+
+            <main id="admin-main-content" class="admin-main" tabindex="-1">
+                <section class="admin-state-panel" aria-live="polite">
+                    <h2>Loading admin workspace</h2>
+                    <p>Please wait while SecondMarket verifies your seller access.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div id="admin-toast-container" class="admin-toast-container" aria-live="polite"></div>
+
+    <script src="/static/js/auth-client.js"></script>
+    <script src="/static/js/admin/admin-api.js"></script>
+    <script src="/static/js/admin/pages/dashboard-page.js"></script>
+    <script src="/static/js/admin/pages/products-page.js"></script>
+    <script src="/static/js/admin/pages/categories-page.js"></script>
+    <script src="/static/js/admin/pages/orders-page.js"></script>
+    <script src="/static/js/admin/app.js"></script>
+</body>
+</html>

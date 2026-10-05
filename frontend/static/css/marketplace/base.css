@@ -1,0 +1,258 @@
+﻿/* CSS DESIGN SYSTEM TOKENS */
+        :root {
+            --color-primary-dark: #4E4638;
+            --color-secondary-text: #776B56;
+            --color-accent: #9A8B74;
+            --color-soft-accent: #B9A995;
+            --color-light-bg: #D7CEC1;
+            --color-surface-light: #FAF8F5;
+            --color-white: #FFFFFF;
+            --color-error: #A8423F;
+            --color-success: #3F7A54;
+            
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-full: 9999px;
+            
+            --shadow-subtle: 0 2px 10px rgba(78, 70, 56, 0.05);
+            --shadow-medium: 0 8px 24px rgba(78, 70, 56, 0.08);
+            --shadow-modal: 0 20px 40px rgba(78, 70, 56, 0.15);
+            
+            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-surface-light);
+            color: var(--color-primary-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Focus Ring Style */
+        *:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-surface-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-soft-accent);
+            border-radius: var(--radius-full);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-accent);
+        }
+
+        /* Utility classes for animations */
+        .fade-in {
+            animation: fadeIn 0.35s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-over-enter {
+            transform: translateX(100%);
+        }
+        .slide-over-active {
+            transform: translateX(0);
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Form Controls */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-light-bg);
+            border-radius: var(--radius-sm);
+            color: var(--color-primary-dark);
+            font-size: 0.875rem;
+            transition: border-color var(--transition-fast);
+        }
+        .form-input:focus {
+            border-color: var(--color-accent);
+            outline: none;
+        }
+        .form-input.error {
+            border-color: var(--color-error);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary-dark);
+            color: var(--color-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            font-size: 0.875rem;
+            letter-spacing: 0.025em;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-primary:hover {
+            background-color: var(--color-secondary-text);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--color-primary-dark);
+            color: var(--color-primary-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-outline:hover {
+            background-color: var(--color-primary-dark);
+            color: var(--color-white);
+        }
+
+        .badge {
+            padding: 0.25rem 0.625rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: var(--radius-sm);
+        }
+        .badge-sale { background-color: #FDF2F2; color: #9B1C1C; border: 1px solid #F8B4B4; }
+        .badge-new { background-color: #EDF6F1; color: var(--color-success); border: 1px solid #C3E6D0; }
+        .badge-out { background-color: #F3F4F6; color: #6B7280; border: 1px solid #E5E7EB; }
+
+        /* Skeleton Loading Animation */
+        .skeleton {
+            background: linear-gradient(90deg, #FAF8F5 25%, #D7CEC1 50%, #FAF8F5 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .marketplace-card-image {
+            aspect-ratio: 4 / 3;
+        }
+
+        .marketplace-card-title {
+            min-height: 3.25rem;
+        }
+
+        .marketplace-home-hero {
+            min-height: calc(100svh - 7.5rem);
+            display: flex;
+            align-items: center;
+            padding-block: clamp(2.25rem, 6vh, 5rem);
+        }
+
+        .marketplace-home-hero-content {
+            width: 100%;
+        }
+
+        .marketplace-home-title {
+            font-size: 3rem;
+            line-height: 1.05;
+        }
+
+        .marketplace-filter-panel {
+            position: sticky;
+            top: 6rem;
+        }
+
+        @media (max-width: 1023px) {
+            .marketplace-filter-panel {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.25rem;
+                padding: 1rem;
+                background: var(--color-white);
+                border: 1px solid rgba(215, 206, 193, 0.75);
+                border-radius: var(--radius-md);
+            }
+        }
+
+        @media (min-width: 640px) {
+            .marketplace-home-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .marketplace-home-title {
+                font-size: 4.25rem;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .marketplace-home-hero {
+                min-height: calc(100svh - 6.5rem);
+                align-items: flex-start;
+                padding-block: 2rem;
+            }
+
+            .marketplace-home-hero-content {
+                gap: 1rem;
+            }
+
+            .marketplace-home-title {
+                font-size: 2.5rem;
+            }
+
+            .marketplace-home-actions {
+                width: 100%;
+                gap: 0.75rem;
+            }
+
+            .marketplace-home-actions .btn-primary,
+            .marketplace-home-actions .btn-outline {
+                width: 100%;
+                padding-block: 0.875rem;
+            }
+
+            .marketplace-filter-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .marketplace-card-title {
+                min-height: auto;
+            }
+        }

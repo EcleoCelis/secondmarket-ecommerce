@@ -1,0 +1,65 @@
+<section class="admin-section" aria-labelledby="admin-orders-title">
+    <div class="admin-section-header">
+        <div>
+            <p class="admin-eyebrow">Fulfillment</p>
+            <h2 id="admin-orders-title">Order Management</h2>
+        </div>
+        <a href="/orders" class="admin-button-secondary">Buyer Order View</a>
+    </div>
+
+    <form class="admin-filter-bar admin-filter-bar-compact" onsubmit="adminApp.applyOrderFilters(event)">
+        <label class="admin-field">
+            <span>Order Status</span>
+            <select name="status">
+                {{statusOptions}}
+            </select>
+        </label>
+        <label class="admin-field">
+            <span>Payment</span>
+            <select name="payment_status">
+                {{paymentOptions}}
+            </select>
+        </label>
+        <label class="admin-field">
+            <span>Shipping</span>
+            <select name="shipping_status">
+                {{shippingOptions}}
+            </select>
+        </label>
+        <label class="admin-field">
+            <span>Sort</span>
+            <select name="sort">
+                {{sortOptions}}
+            </select>
+        </label>
+        <button type="submit" class="admin-button-secondary">Apply</button>
+    </form>
+
+    <div class="admin-panel">
+        <div class="admin-panel-header">
+            <h3>{{orderCount}} orders</h3>
+            <button type="button" onclick="adminApp.resetOrderFilters()" class="admin-text-button">Reset Filters</button>
+        </div>
+        {{orderStatus}}
+        <div class="admin-table-wrap">
+            <table class="admin-table admin-orders-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Order</th>
+                        <th scope="col">Buyer</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Order Status</th>
+                        <th scope="col">Payment</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{orderRows}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {{orderDetail}}
+</section>

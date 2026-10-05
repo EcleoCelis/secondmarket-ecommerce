@@ -1,0 +1,35 @@
+<section class="admin-section" aria-labelledby="admin-dashboard-title">
+    <div class="admin-section-header">
+        <div>
+            <p class="admin-eyebrow">Overview</p>
+            <h2 id="admin-dashboard-title">Seller Dashboard</h2>
+        </div>
+        <button type="button" onclick="adminApp.refreshInventory()" class="admin-button-secondary">Refresh</button>
+    </div>
+
+    <div class="admin-metrics-grid">
+        {{metricCards}}
+    </div>
+
+    <div class="admin-panel">
+        <div class="admin-panel-header">
+            <h3>Recent Inventory</h3>
+            <button type="button" onclick="adminApp.navigate('products')" class="admin-text-button">Manage Products</button>
+        </div>
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Qty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{recentProductRows}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

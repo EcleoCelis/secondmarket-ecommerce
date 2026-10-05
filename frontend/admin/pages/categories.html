@@ -1,0 +1,54 @@
+<section class="admin-section" aria-labelledby="admin-categories-title">
+    <div class="admin-section-header">
+        <div>
+            <p class="admin-eyebrow">Catalog Setup</p>
+            <h2 id="admin-categories-title">Categories</h2>
+        </div>
+        <button type="button" class="admin-button-primary" onclick="document.getElementById('admin-category-name').focus()">New Category</button>
+    </div>
+
+    <form class="admin-filter-bar" onsubmit="adminApp.createCategory(event)">
+        <label class="admin-field">
+            <span>Name</span>
+            <input data-admin-action id="admin-category-name" name="name" type="text" required placeholder="Category name" {{categoryActionDisabled}}>
+        </label>
+        <label class="admin-field">
+            <span>Slug</span>
+            <input data-admin-action name="slug" type="text" placeholder="Optional custom slug" {{categoryActionDisabled}}>
+        </label>
+        <label class="admin-field">
+            <span>Description</span>
+            <input data-admin-action name="description" type="text" placeholder="Short category description" {{categoryActionDisabled}}>
+        </label>
+        <label class="admin-field">
+            <span>Sort</span>
+            <input data-admin-action name="sort_order" type="number" min="0" step="1" value="0" {{categoryActionDisabled}}>
+        </label>
+        <button data-admin-action type="submit" class="admin-button-secondary" {{categoryActionDisabled}}>Create</button>
+    </form>
+
+    <div class="admin-panel">
+        <div class="admin-panel-header">
+            <h3>{{categoryCount}} categories</h3>
+            <button type="button" onclick="adminApp.refreshInventory()" class="admin-text-button">Refresh</button>
+        </div>
+        {{categoryStatus}}
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Products</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Sort</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{categoryRows}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

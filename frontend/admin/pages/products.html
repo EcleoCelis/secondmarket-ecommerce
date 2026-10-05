@@ -1,0 +1,61 @@
+<section class="admin-section" aria-labelledby="admin-products-title">
+    <div class="admin-section-header">
+        <div>
+            <p class="admin-eyebrow">Inventory</p>
+            <h2 id="admin-products-title">Product Listings</h2>
+        </div>
+        <button type="button" class="admin-button-primary" disabled title="Full product form will be added after the inventory workflow is finalized">New Product</button>
+    </div>
+
+    <form class="admin-filter-bar" onsubmit="adminApp.applyProductFilters(event)">
+        <label class="admin-field">
+            <span>Search</span>
+            <input name="q" type="search" value="{{searchQuery}}" placeholder="Title, slug, brand, material">
+        </label>
+        <label class="admin-field">
+            <span>Status</span>
+            <select name="status">
+                {{statusOptions}}
+            </select>
+        </label>
+        <label class="admin-field">
+            <span>Condition</span>
+            <select name="condition">
+                {{conditionOptions}}
+            </select>
+        </label>
+        <label class="admin-field">
+            <span>Sort</span>
+            <select name="sort">
+                {{sortOptions}}
+            </select>
+        </label>
+        <button type="submit" class="admin-button-secondary">Apply</button>
+    </form>
+
+    <div class="admin-panel">
+        <div class="admin-panel-header">
+            <h3>{{productCount}} products</h3>
+            <button type="button" onclick="adminApp.resetProductFilters()" class="admin-text-button">Reset Filters</button>
+        </div>
+        {{productStatus}}
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Condition</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{productRows}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

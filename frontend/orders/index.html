@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders | SecondMarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/orders/base.css">
+</head>
+<body class="orders-page">
+    <header class="orders-header">
+        <a href="/" class="orders-brand" aria-label="SecondMarket storefront">
+            <span class="orders-brand-mark" aria-hidden="true"></span>
+            <span>SecondMarket</span>
+        </a>
+
+        <nav class="orders-nav" aria-label="Order navigation">
+            <button type="button" data-orders-nav="history" onclick="ordersApp.navigate('history')" class="orders-nav-link is-active">History</button>
+            <a href="/checkout" class="orders-nav-link">Checkout</a>
+            <a href="/" class="orders-nav-link">Storefront</a>
+        </nav>
+
+        <div class="orders-user" aria-live="polite">
+            <span data-orders-user-name>Checking access...</span>
+        </div>
+    </header>
+
+    <main id="orders-main-content" class="orders-main" tabindex="-1">
+        <section class="orders-state-panel" aria-live="polite">
+            <h1>Loading orders</h1>
+            <p>Please wait while SecondMarket prepares your order history.</p>
+        </section>
+    </main>
+
+    <div id="orders-toast-container" class="orders-toast-container" aria-live="polite"></div>
+
+    <script src="/static/js/auth-client.js"></script>
+    <script src="/static/js/orders/orders-api.js"></script>
+    <script src="/static/js/orders/pages/history-page.js"></script>
+    <script src="/static/js/orders/pages/detail-page.js"></script>
+    <script src="/static/js/orders/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | SecondMarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/checkout/base.css">
+</head>
+<body class="checkout-page">
+    <header class="checkout-header">
+        <a href="/" class="checkout-brand" aria-label="SecondMarket storefront">
+            <span class="checkout-brand-mark" aria-hidden="true"></span>
+            <span>SecondMarket</span>
+        </a>
+
+        <nav class="checkout-steps" aria-label="Checkout steps">
+            <button type="button" data-checkout-nav="cart" onclick="checkoutApp.navigate('cart')" class="checkout-step is-active">Cart</button>
+            <button type="button" data-checkout-nav="summary" onclick="checkoutApp.navigate('summary')" class="checkout-step">Checkout</button>
+        </nav>
+
+        <div class="checkout-user" aria-live="polite">
+            <span data-checkout-user-name>Checking access...</span>
+        </div>
+    </header>
+
+    <main id="checkout-main-content" class="checkout-main" tabindex="-1">
+        <section class="checkout-state-panel" aria-live="polite">
+            <h1>Loading checkout</h1>
+            <p>Please wait while SecondMarket prepares your cart.</p>
+        </section>
+    </main>
+
+    <div id="checkout-toast-container" class="checkout-toast-container" aria-live="polite"></div>
+
+    <script src="/static/js/auth-client.js"></script>
+    <script src="/static/js/checkout/checkout-api.js"></script>
+    <script src="/static/js/checkout/pages/cart-page.js"></script>
+    <script src="/static/js/checkout/pages/summary-page.js"></script>
+    <script src="/static/js/checkout/app.js"></script>
+</body>
+</html>

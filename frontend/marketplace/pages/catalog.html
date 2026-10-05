@@ -1,0 +1,63 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <nav class="text-xs text-[#776B56] mb-6 flex items-center gap-2">
+        <a href="#" onclick="app.navigate('home'); return false;" class="hover:underline">Home</a>
+        <span>/</span>
+        <span class="text-[#4E4638] font-semibold">Catalog</span>
+    </nav>
+
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 pb-6 border-b border-[#D7CEC1]">
+        <div>
+            <h1 class="font-serif text-3xl sm:text-4xl text-[#4E4638]">{{categoryName}}</h1>
+            <p class="text-xs text-[#776B56] mt-1">Showing {{productCount}} API-matched secondhand items</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center gap-3">
+            <label class="text-xs uppercase tracking-wider text-[#776B56] font-semibold">Sort By:</label>
+            <select onchange="app.applyMarketplaceFilters({sortBy: this.value})" class="form-input py-1.5 text-xs w-40">
+                {{sortOptions}}
+            </select>
+        </div>
+    </div>
+
+    <form onsubmit="app.applyCatalogSearch(event)" class="mb-8 flex flex-col sm:flex-row gap-3">
+        <input name="q" type="search" value="{{searchQuery}}" placeholder="Search title, brand, material, or description..." class="form-input flex-1">
+        <button type="submit" class="btn-primary text-xs uppercase tracking-widest">Search</button>
+        {{clearSearchButton}}
+    </form>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <aside class="marketplace-filter-panel space-y-6 lg:border-r lg:border-[#D7CEC1]/50 lg:pr-6">
+            <div>
+                <h3 class="text-xs uppercase tracking-widest text-[#4E4638] font-bold mb-3">Category</h3>
+                <ul class="space-y-2 text-xs">
+                    {{categoryOptions}}
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xs uppercase tracking-widest text-[#4E4638] font-bold mb-3">Maximum Price</h3>
+                <input type="range" min="0" max="5000" step="100" value="{{priceMax}}" onchange="app.applyMarketplaceFilters({priceMax: parseInt(this.value)})" class="w-full accent-[#9A8B74]">
+                <div class="flex justify-between text-xs text-[#776B56] mt-1">
+                    <span>{{priceMinLabel}}</span>
+                    <span class="font-bold text-[#4E4638]">{{priceMaxLabel}}</span>
+                </div>
+            </div>
+
+            <div>
+                <label for="condition-filter" class="block text-xs uppercase tracking-widest text-[#4E4638] font-bold mb-3">Condition</label>
+                <select id="condition-filter" onchange="app.applyMarketplaceFilters({condition: this.value})" class="form-input py-2 text-xs">
+                    {{conditionOptions}}
+                </select>
+            </div>
+
+            <div>
+                <button onclick="app.resetMarketplaceFilters()" class="btn-outline w-full text-xs py-2">Reset Filters</button>
+            </div>
+        </aside>
+
+        <main class="lg:col-span-3">
+            {{catalogStatus}}
+            {{emptyState}}
+            {{productGrid}}
+        </main>
+    </div>
+</div>

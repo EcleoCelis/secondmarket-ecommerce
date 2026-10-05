@@ -1,0 +1,43 @@
+<section class="orders-section" aria-labelledby="orders-history-title">
+    <div class="orders-section-header">
+        <div>
+            <p class="orders-eyebrow">Buyer Orders</p>
+            <h1 id="orders-history-title">Order History</h1>
+        </div>
+        <button type="button" class="orders-secondary-button" onclick="ordersApp.refreshOrders()">Refresh</button>
+    </div>
+
+    <form class="orders-filter-bar" onsubmit="ordersApp.applyFilters(event)">
+        <label class="orders-field">
+            <span>Status</span>
+            <select name="status">
+                {{statusOptions}}
+            </select>
+        </label>
+        <label class="orders-field">
+            <span>Payment</span>
+            <select name="payment_status">
+                {{paymentOptions}}
+            </select>
+        </label>
+        <label class="orders-field">
+            <span>Shipping</span>
+            <select name="shipping_status">
+                {{shippingOptions}}
+            </select>
+        </label>
+        <label class="orders-field">
+            <span>Sort</span>
+            <select name="sort">
+                {{sortOptions}}
+            </select>
+        </label>
+        <button type="submit" class="orders-primary-button">Apply</button>
+    </form>
+
+    {{ordersStatus}}
+
+    <div class="orders-list" aria-live="polite">
+        {{orderCards}}
+    </div>
+</section>

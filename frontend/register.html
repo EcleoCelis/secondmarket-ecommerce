@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | SecondMarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body class="auth-page">
+    <main class="auth-shell" aria-labelledby="register-title">
+        <a class="auth-brand" href="/">
+            <span class="auth-brand-mark" aria-hidden="true"></span>
+            SecondMarket
+        </a>
+
+        <section class="auth-panel">
+            <h1 id="register-title">Create Buyer Account</h1>
+            <p style="text-align:center; margin:0 0 1.5rem;">Register as a buyer to save secondhand finds and prepare for checkout.</p>
+
+            <div data-auth-message class="auth-message" role="status" aria-live="polite"></div>
+
+            <form data-auth-form="register" class="auth-grid" novalidate>
+                <div class="auth-grid two-columns">
+                    <div class="auth-field">
+                        <label for="register-first-name">First Name</label>
+                        <input id="register-first-name" name="first_name" type="text" required autocomplete="given-name" class="form-input">
+                    </div>
+                    <div class="auth-field">
+                        <label for="register-last-name">Last Name</label>
+                        <input id="register-last-name" name="last_name" type="text" required autocomplete="family-name" class="form-input">
+                    </div>
+                </div>
+                <div class="auth-field">
+                    <label for="register-phone">Phone</label>
+                    <input id="register-phone" name="phone" type="tel" autocomplete="tel" class="form-input">
+                </div>
+                <div class="auth-field">
+                    <label for="register-email">Email Address</label>
+                    <input id="register-email" name="email" type="email" required autocomplete="email" class="form-input">
+                </div>
+                <div class="auth-field">
+                    <label for="register-password">Password</label>
+                    <input id="register-password" name="password" type="password" required autocomplete="new-password" minlength="8" class="form-input">
+                </div>
+                <button type="submit" class="btn-primary">Create Buyer Account</button>
+            </form>
+
+            <div class="auth-page-links">
+                <a class="btn-outline" href="/login.html">Already Have An Account?</a>
+                <a class="btn-outline" href="/">Back To Storefront</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/js/auth-client.js"></script>
+    <script src="/static/js/auth-page.js"></script>
+</body>
+</html>

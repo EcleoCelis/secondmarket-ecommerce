@@ -1,0 +1,51 @@
+<!-- HERO SECTION -->
+<section class="marketplace-home-hero relative bg-[#4E4638] text-white px-4 overflow-hidden">
+    <div class="absolute inset-0 opacity-40">
+        <img src="/static/productImages/bags/young-girl-with-gray-student-backpack.jpg" class="w-full h-full object-cover" alt="Secondhand marketplace hero item">
+    </div>
+    <div class="marketplace-home-hero-content relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start space-y-6">
+        <span class="text-xs uppercase tracking-widest text-[#B9A995] font-semibold bg-[#776B56]/40 px-3 py-1 rounded">Buyer Marketplace</span>
+        <h1 class="marketplace-home-title font-serif text-4xl sm:text-6xl lg:text-7xl font-light leading-tight max-w-3xl">
+            Find practical secondhand pieces ready for a new home.
+        </h1>
+        <p class="text-sm sm:text-base text-[#D7CEC1] max-w-xl font-light leading-relaxed">
+            Browse available items listed by the SecondMarket admin seller, from electronics and clothing to everyday household finds.
+        </p>
+        <div class="marketplace-home-actions pt-4 flex flex-wrap gap-4">
+            <button onclick="app.navigate('shop')" class="btn-primary py-3.5 px-8 text-xs uppercase tracking-widest">Explore Catalog</button>
+            <button onclick="app.navigate('shop', {category: 'fashion'})" class="btn-outline py-3.5 px-8 text-xs uppercase tracking-widest text-white border-white hover:bg-white hover:text-[#4E4638]">View Fashion</button>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex justify-between items-end mb-8">
+        <div>
+            <p class="text-xs uppercase tracking-widest text-[#776B56] font-bold">Categories</p>
+            <h2 class="font-serif text-2xl sm:text-3xl text-[#4E4638]">Browse By Category</h2>
+        </div>
+        <a href="#" onclick="app.navigate('shop'); return false;" class="text-xs uppercase tracking-widest text-[#9A8B74] hover:text-[#4E4638] font-bold">View All Categories &rarr;</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {{categoryTiles}}
+    </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest text-[#776B56] font-semibold">Available Now</span>
+        <h2 class="font-serif text-3xl text-[#4E4638] mt-1">Featured Secondhand Finds</h2>
+    </div>
+    {{featuredStatus}}
+    {{featuredProducts}}
+</section>
+
+<section class="bg-[#D7CEC1]/30 my-16 py-20 border-y border-[#B9A995]/50">
+    <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+        <span class="text-xs uppercase tracking-widest text-[#776B56] font-bold">Secondhand Promise</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-[#4E4638] leading-snug">
+            "Every listed item should be clear, reusable, fairly priced, and easy for buyers to evaluate before checkout."
+        </h2>
+        <p class="text-xs uppercase tracking-widest text-[#9A8B74] font-semibold">- SecondMarket Admin Seller</p>
+    </div>
+</section>

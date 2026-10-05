@@ -1,0 +1,66 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <nav class="text-xs text-[#776B56] mb-8 flex items-center gap-2">
+        <a href="#" onclick="app.navigate('home'); return false;" class="hover:underline">Home</a>
+        <span>/</span>
+        <a href="#" onclick="app.navigate('shop', {category: '{{categorySlug}}'}); return false;" class="hover:underline">{{categoryName}}</a>
+        <span>/</span>
+        <span class="text-[#4E4638] font-semibold">{{title}}</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-4">
+            <div class="aspect-4/3 rounded overflow-hidden bg-white border border-[#D7CEC1]">
+                <img src="{{activeImage}}" class="w-full h-full object-cover" alt="{{title}}">
+            </div>
+            <div class="flex gap-3 overflow-x-auto pb-2">
+                {{galleryButtons}}
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <div>
+                <p class="text-xs uppercase tracking-widest text-[#776B56] font-bold">{{categoryName}}</p>
+                <h1 class="font-serif text-3xl font-semibold text-[#4E4638] mt-1">{{title}}</h1>
+                <div class="flex items-center gap-4 mt-3">
+                    <span class="text-xl font-bold text-[#4E4638]">{{price}}</span>
+                    <span class="text-xs text-[#776B56]">{{conditionLabel}} | {{quantity}} available</span>
+                </div>
+            </div>
+
+            <p class="text-sm text-[#776B56] leading-relaxed">{{description}}</p>
+
+            <div>
+                <label class="block text-xs uppercase tracking-wider text-[#4E4638] font-bold mb-2">Color Variant: <span class="text-[#776B56] font-normal">{{selectedColor}}</span></label>
+                <div class="flex gap-2">{{colorButtons}}</div>
+            </div>
+
+            <div>
+                <label class="block text-xs uppercase tracking-wider text-[#4E4638] font-bold mb-2">Size / Dimensions: <span class="text-[#776B56] font-normal">{{selectedSize}}</span></label>
+                <div class="flex gap-2">{{sizeButtons}}</div>
+            </div>
+
+            <div class="pt-4 flex items-center gap-4 border-t border-[#D7CEC1]">
+                <div class="flex items-center border border-[#D7CEC1] rounded bg-white">
+                    <button onclick="app.state.pdpQty = Math.max(1, (app.state.pdpQty||1)-1); app.render();" class="px-3 py-2 text-[#776B56] hover:text-[#4E4638]">-</button>
+                    <span class="px-4 text-xs font-semibold">{{quantitySelected}}</span>
+                    <button onclick="app.state.pdpQty = (app.state.pdpQty||1)+1; app.render();" class="px-3 py-2 text-[#776B56] hover:text-[#4E4638]">+</button>
+                </div>
+
+                <button onclick="app.addToCart('{{productId}}', '{{selectedColor}}', '{{selectedSize}}', {{quantitySelected}})" class="btn-primary flex-1 py-3 text-xs uppercase tracking-widest">
+                    Add To Bag - {{lineTotal}}
+                </button>
+            </div>
+
+            <div class="border-t border-[#D7CEC1] pt-4 space-y-2 text-xs">
+                <div class="p-3 bg-[#FAF8F5] rounded border border-[#D7CEC1]/50 space-y-1">
+                    <p class="font-bold text-[#4E4638]">Material & Brand</p>
+                    <p class="text-[#776B56]">{{material}} | {{brand}}</p>
+                </div>
+                <div class="p-3 bg-[#FAF8F5] rounded border border-[#D7CEC1]/50 space-y-1">
+                    <p class="font-bold text-[#4E4638]">Dimensions & Seller</p>
+                    <p class="text-[#776B56]">{{dimensions}} | {{sellerName}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

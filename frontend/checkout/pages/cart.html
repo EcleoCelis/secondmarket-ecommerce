@@ -1,0 +1,29 @@
+<section class="checkout-section" aria-labelledby="checkout-cart-title">
+    <div class="checkout-section-header">
+        <div>
+            <p class="checkout-eyebrow">Your Cart</p>
+            <h1 id="checkout-cart-title">Review Saved Items</h1>
+        </div>
+        <a href="/" class="checkout-secondary-link">Continue Shopping</a>
+    </div>
+
+    {{cartStatus}}
+
+    <div class="checkout-layout">
+        <section class="checkout-panel" aria-label="Cart items">
+            <div class="checkout-panel-header">
+                <h2>{{cartItemCount}} item(s)</h2>
+            </div>
+            <div class="checkout-cart-list">
+                {{cartItems}}
+            </div>
+        </section>
+
+        <aside class="checkout-summary-card" aria-label="Cart totals">
+            <p class="checkout-eyebrow">Subtotal</p>
+            <strong>{{cartSubtotal}}</strong>
+            <p>{{cartTotalItems}} total item(s) in your cart.</p>
+            <button type="button" class="checkout-primary-button" onclick="checkoutApp.navigate('summary')" {{checkoutDisabled}}>Proceed To Checkout</button>
+        </aside>
+    </div>
+</section>

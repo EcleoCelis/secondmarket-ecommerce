@@ -1,0 +1,63 @@
+<section class="checkout-section" aria-labelledby="checkout-summary-title">
+    <div class="checkout-section-header">
+        <div>
+            <p class="checkout-eyebrow">Checkout</p>
+            <h1 id="checkout-summary-title">Shipping And Payment</h1>
+        </div>
+        <button type="button" class="checkout-secondary-button" onclick="checkoutApp.navigate('cart')">Back To Cart</button>
+    </div>
+
+    {{cartStatus}}
+
+    <div class="checkout-layout">
+        <form id="checkout-summary-form" class="checkout-panel checkout-form" aria-label="Checkout details" onsubmit="checkoutApp.submitCheckout(event)">
+            <div class="checkout-panel-header">
+                <h2>Delivery Details</h2>
+            </div>
+
+            <label class="checkout-field">
+                <span>Recipient Name</span>
+                <input name="recipient_name" type="text" autocomplete="name" placeholder="Full name" required>
+            </label>
+            <label class="checkout-field">
+                <span>Phone</span>
+                <input name="phone" type="tel" autocomplete="tel" placeholder="Mobile number" required>
+            </label>
+            <label class="checkout-field checkout-field-wide">
+                <span>Address</span>
+                <input name="address_line1" type="text" autocomplete="street-address" placeholder="House number, street, barangay" required>
+            </label>
+            <label class="checkout-field checkout-field-wide">
+                <span>Address Line 2</span>
+                <input name="address_line2" type="text" placeholder="Apartment, landmark, or delivery note">
+            </label>
+            <label class="checkout-field">
+                <span>City</span>
+                <input name="city" type="text" autocomplete="address-level2" placeholder="City" required>
+            </label>
+            <label class="checkout-field">
+                <span>Province</span>
+                <input name="province" type="text" autocomplete="address-level1" placeholder="Province" required>
+            </label>
+            <label class="checkout-field">
+                <span>Postal Code</span>
+                <input name="postal_code" type="text" autocomplete="postal-code" placeholder="Postal code" required>
+            </label>
+            <label class="checkout-field">
+                <span>Payment Method</span>
+                <select name="payment_method">
+                    <option value="cash_on_delivery">Cash On Delivery</option>
+                    <option value="gcash_pending">GCash Reference Pending</option>
+                </select>
+            </label>
+        </form>
+
+        <aside class="checkout-summary-card" aria-label="Order summary">
+            <p class="checkout-eyebrow">Order Summary</p>
+            <strong>{{cartSubtotal}}</strong>
+            <p>{{cartTotalItems}} total item(s). Shipping is calculated by SecondMarket before confirmation.</p>
+            <button form="checkout-summary-form" type="submit" class="checkout-primary-button" {{checkoutDisabled}}>Place Order</button>
+            {{confirmationPanel}}
+        </aside>
+    </div>
+</section>
